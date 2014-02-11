@@ -24,5 +24,23 @@ module BabyBlog
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
+    # Source secret data: http://edgeguides.rubyonrails.org/4_1_release_notes.html#config-secrets-yml
+    def secrets
+      @secrets ||= begin
+        secrets = ActiveSupport::OrderedOptions.new
+        yaml = File.join(Rails.root, 'config', 'secrets.yml')
+        if File.exist?(yaml)
+          env_secrets = YAML.load(ERB.new(IO.read(yaml)).result)[Rails.env]
+          secrets.merge!(env_secrets.symbolize_keys) if env_secrets
+        end
+        secrets
+      end
+    end
+
+    config.before_configuration do
+      secrets
+    end
+
   end
 end
