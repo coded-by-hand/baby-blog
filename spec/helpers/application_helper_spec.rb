@@ -6,8 +6,11 @@ describe ApplicationHelper do
     it 'returns nil' do
       expect(helper.render_analytics).to eql(nil)
     end
-    context 'in production' do
-      before { Rails.stub_chain(:env, :production?).and_return(true) }
+    context 'in production with an analytics_id present' do
+      before do
+        allow(Rails.env).to receive(:production?).and_return(true)
+        allow(Rails.application.secrets).to receive(:google_analytics_id).and_return('UA-XXXXX-X')
+      end
       it 'returns a string' do
         expect(helper.render_analytics).to be_kind_of(String)
       end
