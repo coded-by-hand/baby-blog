@@ -20,13 +20,13 @@ group :development do
   gem 'better_errors',            '~> 1.1.0'
   gem 'binding_of_caller',        '~> 0.7.2'
   gem 'meta_request',             '~> 0.2.8'
-  gem 'pry-rails',                '~> 0.3.2'
 end
 
 group :development, :test do
   gem 'annotate',                 '~> 2.6.1'
   gem 'factory_girl_rails',       '~> 4.3.0'
   gem 'ffaker',                   '~> 1.23.0'
+  gem 'pry-rails',                '~> 0.3.2'
   gem 'rspec-rails',              '~> 2.14.1'
   gem 'unicorn-rails',            '~> 1.1.0'
 end
