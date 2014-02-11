@@ -18,3 +18,4 @@
 
 # Ignore sensitive data
 /config/database.yml
+/config/secrets.yml
