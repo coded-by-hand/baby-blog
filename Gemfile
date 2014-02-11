@@ -14,6 +14,9 @@ gem 'sass-rails',                 '~> 4.0.1'
 gem 'uglifier',                   '>= 1.3.0'
 gem 'underscore-rails',           '~> 1.5.2'
 
+# misc gems
+gem 'high_voltage',               '~> 2.1.0'
+
 # environment groups
 group :development do
   gem 'awesome_print',            '~> 1.2.0'
